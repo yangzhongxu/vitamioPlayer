@@ -1,0 +1,54 @@
+#include <jni.h>
+#include "header/util.h"
+#include <stddef.h>
+#include <android/log.h>
+#include <string>
+
+#define LOGE(str) __android_log_write(ANDROID_LOG_ERROR, "log_form_jni", str)
+#define SIGN "3082034f30820237a00302010202047c7e6294300d06092a864886f70d01010b05003057310b300906035504061302434e310b3009060355040813026862310c300a06035504071303716864310c300a060355040a1303797a783111300f060355040b1308706572736f6e616c310c300a06035504031303797a783020170d3136303931343036313632365a180f32303836303832383036313632365a3057310b300906035504061302434e310b3009060355040813026862310c300a06035504071303716864310c300a060355040a1303797a783111300f060355040b1308706572736f6e616c310c300a06035504031303797a7830820122300d06092a864886f70d01010105000382010f003082010a0282010100aa44c661de9737e490bc13ae60c972b6acca774a711fd46e1ef024084cbbc3ce438766dd3ea1697091dbd53ffcb1424f5e67142a31b88d0a8f6c2a0f9d61d8a477454c56ac5819b95cf33a1cd4665cfb7fa3d9f8a528c296c4a9420c63b3926c1607c3843d11c3f2115707ec7ccd368fc0abf9e24452fefd23eb6bc9c3b36672f6d576d92cecca2ad385f79c6f629d45fcc12718c4ed869abc4e5315e1ded37d042c36f6e394641a0f3edd6fcd2d542008e2b124ce7a7dd2c4a991204dd52c35ff887d4b5f468bcb3e31d10d16eb570af6832df52fd98d766679edde3768b2d2cb3f16cef5d2217d3666819dc59ef614423ea143fb72f18825ee6e0dbdb9a4a30203010001a321301f301d0603551d0e0416041478bc79974d413008d3391f216ce42b685c05e3ad300d06092a864886f70d01010b05000382010100188830c495f26faaa8b8e64b4d9fe6db47665f902f55fe178f6c5abd3710419cfd99359acf2961e229f3c511e494d1f47d6ef71a330eff91309224bf98cb5d8621a58db096b5220a0d9e85b2fc90989cf42410255b9157b537212b078d77a06dd4b5a81641af8733de6820df273fcd06fd261fa47017755008f8aa9387c6134c23bc3a210626796cc56b928c37c7d0058644fe30ab59cf1ae06cec8f922ceb5bd7cc1d7ea231a8efaa18df74c62ca8a7dc9338048eee2a7391d01a2f461a9c7b77332cd1c6bdf17e3ab6bb898379ff8a807a60f98862396beda1f7a288161ca333d093345ac57582450eca6c20343414f3c216b5a7389b99ae950b8e7c8b1ca6"
+
+using namespace std;
+jobject application = NULL;
+
+
+JNIEXPORT jint JNI_OnLoad(){
+    return JNI_VERSION_1_6;
+}
+
+extern "C"
+JNIEXPORT void Java_yzx_gogoPlayer_AppApplication_check(JNIEnv * env , jclass jc , jobject app){
+
+    if(1){
+        return ;
+    }
+
+    /* 下边是获取apk的签名信息, 如果和上边的正确签名一致,就将application全局变量赋值,否则不赋值... */
+
+    jstring jstr_sign = get_apk_signature(env,app);
+    const char * cstr_sign = env->GetStringUTFChars(jstr_sign,0);
+
+    string getSign = cstr_sign;
+    string trueSign = SIGN;
+
+    if(getSign == trueSign) application = env->NewGlobalRef(app);
+    else application = NULL;
+}
+
+
+extern "C"
+JNIEXPORT void Java_yzx_gogoPlayer_AppApplication_checkChecked(JNIEnv * env , jclass jc){
+
+    if(1){
+        return ;
+    }
+
+
+    if(application == NULL)
+        env->FatalError("fuck~~~");
+}
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        threadCount Integer.MAX_VALUE
+        maxProcessCount Integer.MAX_VALUE
+    }
+
+    signingConfigs {
+        release{
+            keyAlias 'helloworld'
+            keyPassword 'helloworld'
+            storeFile file('jks/sign.jks')
+            storePassword 'helloworld'
+        }
+        yzx{
+            keyAlias 'gogo'
+            keyPassword ''
+            storeFile file('jks/gogo.jks')
+            storePassword ''
+        }
+    }
+
+    tasks.whenTaskAdded { task ->
+        if (task.name.contains('AndroidTest')) {
+            task.enabled = false
+        }
+        if (task.name.contains('ApplicationTest')) {
+            task.enabled = false
+        }
+    }
+
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+
+    defaultConfig {
+        applicationId "yzx.gogoPlayer"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+//as2.2后 ndk 配置打release包不起作用
+//        ndk {
+//            moduleName "gogo"
+//            stl "gnustl_static"
+//            ldLibs 'log'
+//            /* 没用 */
+//            cFlags "-Wno-error=format-security"
+//        }
+        //开启jack功能,java8需要
+        jackOptions {
+            enabled true
+        }
+//        externalNativeBuild {
+//            cmake {
+//                cppFlags "-std=c++11 -frtti -fexceptions"
+//            }
+//        }
+    }
+
+    buildTypes {
+        debug{
+            signingConfig signingConfigs.release
+            debuggable true
+        }
+        release {
+            signingConfig signingConfigs.release
+            shrinkResources false
+            minifyEnabled true
+            zipAlignEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            jni.srcDirs = ['src/main/jni']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+        encoding "UTF-8"
+    }
+
+    externalNativeBuild {
+        ndkBuild{
+            path "src/main/jni/Android.mk"
+        }
+//        cmake {
+//            path "CMakeLists.txt"
+//        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+
+    compile project(':vitamio')
+}

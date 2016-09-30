@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="history_video_cannot_find">该视频文件已不存在</string>
+    <string name="has_stop_search">已停止搜索</string>
+    <string name="searching_waiting">搜索中，请稍等。。</string>
+    <string name="no_any_video_found">未发现任何视频</string>
+    <string name="name_search">名称搜索</string>
+    <string name="search_video_edittext_hint">输入关键字(不输入为显示全部)</string>
+    <string name="ensure_delete">确定要删除吗?</string>
+    <string name="delete_success">删除成功</string>
+    <string name="delete_failed">删除失败</string>
+    <string name="play_error">哎呀呀,视频播放出错了...</string>
+    <string name="liangdu">亮度</string>
+    <string name="yinliang">音量</string>
+    <string name="press_again_quite">再按一次退出</string>
+    <string name="dir_is_empty">该文件夹下无任何文件</string>
+    <string name="dir_is_un_readable">该文件夹无权限访问</string>
+
+    <string-array name="video_long_click_menu">
+        <item>文件位置</item>
+        <item>删除文件</item>
+    </string-array>
+
+    <string-array name="video_qualities">
+        <item>流畅</item>
+        <item>普通</item>
+        <item>高清</item>
+    </string-array>
+
+</resources>

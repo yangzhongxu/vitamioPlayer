@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+   <LinearLayout
+       android:background="@color/colorPrimary"
+       android:layout_width="match_parent"
+       android:layout_height="60dp"
+       android:orientation="horizontal">
+       <Button
+           android:background="?attr/selectableItemBackground"
+           android:text="选择视频"
+           android:textColor="#fff"
+           android:id="@+id/btn_select"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="match_parent" />
+       <View android:background="#fff" android:layout_width="1px" android:layout_height="30dp" android:layout_gravity="center"/>
+       <Button
+           android:background="?attr/selectableItemBackground"
+           android:text="全盘搜索"
+           android:textColor="#fff"
+           android:id="@+id/btn_search"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="match_parent" />
+   </LinearLayout>
+
+<TextView
+    android:layout_marginBottom="4dp"
+    android:layout_width="match_parent"
+    android:gravity="bottom"
+    android:paddingBottom="5dp"
+    android:paddingLeft="12dp"
+    android:textSize="13dp"
+    android:textColor="#808080"
+    android:background="#eee"
+    android:layout_height="32dp"
+    android:text="播放历史 : "/>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/emptyHistoryView"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@mipmap/ic_clock"
+            android:layout_width="28dp"
+            android:layout_marginBottom="8dp"
+            android:layout_height="28dp" />
+        <TextView
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textColor="#949494"
+            android:text="无播放记录"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <ListView
+        android:dividerHeight="5dp"
+        android:divider="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>
+
+</LinearLayout>

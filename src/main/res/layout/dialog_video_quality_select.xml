@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:background="@color/videoPlayLayer"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textColor="#fff"
+        android:gravity="center"
+        android:text="流畅"
+        android:tag="流畅"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="42dp"
+        android:layout_height="42dp" />
+    <View android:background="#6fff" android:layout_width="2px" android:layout_height="32dp" android:layout_gravity="center"/>
+    <TextView
+        android:gravity="center"
+        android:background="?attr/selectableItemBackground"
+        android:text="普通"
+        android:tag="普通"
+        android:textColor="#fff"
+        android:layout_width="42dp"
+        android:layout_height="42dp" />
+    <View android:background="#6fff" android:layout_width="2px" android:layout_height="32dp" android:layout_gravity="center"/>
+    <TextView
+        android:gravity="center"
+        android:text="高清"
+        android:tag="高清"
+        android:background="?attr/selectableItemBackground"
+        android:textColor="#fff"
+        android:layout_width="42dp"
+        android:layout_height="42dp" />
+
+</LinearLayout>

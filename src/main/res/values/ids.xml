@@ -1,0 +1,10 @@
+<resources>
+
+    <item name="app_title_bar" type="id"/>
+
+    <item name="tag_1" type="id"/>
+    <item name="tag_2" type="id"/>
+    <item name="tag_3" type="id"/>
+
+
+</resources>

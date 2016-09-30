@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="68dp">
+
+    <FrameLayout
+        android:background="?attr/selectableItemBackground"
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="68dp">
+
+        <ImageView
+            android:background="#eee"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/image"
+            android:scaleType="centerCrop"
+            android:layout_width="54dp"
+            android:layout_height="54dp" />
+
+        <TextView
+            android:paddingRight="12dp"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            tool:text="fuck"
+            android:id="@+id/name"
+            android:paddingLeft="80dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="72dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            android:layout_gravity="right|center_vertical"
+            android:id="@+id/delete"
+            android:src="@mipmap/ic_x"
+            android:padding="22dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+    </FrameLayout>
+
+</LinearLayout>

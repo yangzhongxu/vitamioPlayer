@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#2371f3</color>
+    <color name="colorPrimaryDeep">#5089e9</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="videoPlayLayer">#a000</color>
+
+</resources>

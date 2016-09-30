@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <yzx.gogoPlayer.widget.AppTitleBar
+        app:title="选择视频"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_bar_height"/>
+
+    <HorizontalScrollView
+        android:id="@+id/hscrollview"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="24dp">
+        <TextView
+            android:id="@+id/pathTv"
+            android:textSize="13dp"
+            android:paddingLeft="12dp"
+            android:textColor="#fff"
+            tool:text="/storage/sdcard/fuck/aaaa.mp3"
+            android:paddingRight="6dp"
+            android:gravity="top|left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </HorizontalScrollView>
+
+    <ListView
+        android:background="#fff"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
